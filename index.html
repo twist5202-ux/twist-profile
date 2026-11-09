@@ -140,19 +140,63 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 .intro-v6 .v5-center{z-index:5}
 .intro-v6 .v6-halo{z-index:1}
 .intro-v6 .v6-exit-wave{z-index:4}
+
+/* TWIST V7 — ART-DIRECTED CINEMATIC WORDMARK */
+/* Separate class names prevent prior V5/V6 animation overrides. */
+.intro-v7 .v7-wordmark{position:relative;width:min(1000px,94vw);margin:24px auto 12px;isolation:isolate;perspective:1100px;line-height:1}
+.intro-v7 .v7-letters,.intro-v7 .v7-ghost{display:flex;justify-content:center;align-items:baseline;font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;font-size:clamp(86px,19vw,242px);letter-spacing:-.11em;line-height:1.09;padding-right:.12em;white-space:nowrap}
+.intro-v7 .v7-letters{position:relative;z-index:2;filter:drop-shadow(0 0 30px rgba(170,137,246,.05))}
+.intro-v7 .v7-window{display:inline-block;overflow:hidden;vertical-align:baseline;padding-top:.12em;padding-bottom:.15em;margin-top:-.12em;margin-bottom:-.15em}
+.intro-v7 .v7-window-dot{overflow:visible}
+.intro-v7 .v7-glyph{display:inline-block;opacity:0;transform:translate3d(0,115%,0) rotateX(-32deg) scaleY(.78);transform-origin:50% 100%;filter:blur(17px);transition:opacity .55s ease,transform .94s cubic-bezier(.12,.78,.12,1),filter .7s ease;background:linear-gradient(115deg,#b4aabc 2%,#fefcff 42%,#ded5f5 68%,#9281bb 100%);background-clip:text;-webkit-background-clip:text;color:#f1edfa;-webkit-text-fill-color:transparent;will-change:transform,opacity,filter}
+.intro-v7 .v7-glyph.v7-visible{opacity:1;transform:translate3d(0,0,0) rotateX(0) scaleY(1);filter:blur(0)}
+.intro-v7 .v7-glyph.v7-dot{color:#b59bff;-webkit-text-fill-color:#b59bff;background:none;text-shadow:0 0 25px rgba(186,155,255,.46)}
+.intro-v7 .v7-ghost{position:absolute;inset:0;z-index:1;opacity:0;transform:translate3d(0,11px,0) scale(1.01);-webkit-text-stroke:1px rgba(198,169,255,.25);color:transparent;filter:blur(8px);transition:opacity 1.2s,transform 1.4s}
+.intro-v7 .v7-ghost span{color:transparent}
+.intro-v7.v7-resolved .v7-ghost{opacity:.7;transform:translate3d(0,3px,0) scale(1.035)}
+.intro-v7 .v7-light-sweep{position:absolute;left:-8%;right:-8%;top:0;bottom:0;z-index:3;pointer-events:none;opacity:0;mix-blend-mode:screen;background:linear-gradient(102deg,transparent 37%,rgba(255,255,255,.035) 43%,rgba(234,214,255,.28) 49%,rgba(255,255,255,.065) 54%,transparent 62%);transform:translateX(-120%) skewX(-9deg)}
+.intro-v7.v7-resolved .v7-light-sweep{opacity:1;animation:v7Sweep 1.2s cubic-bezier(.22,1,.36,1) .2s both}
+.intro-v7 .v7-baseline{height:1px;position:absolute;bottom:-15px;left:50%;width:0;background:linear-gradient(90deg,transparent,#9d88de,#e3d3ff,#9d88de,transparent);box-shadow:0 0 18px rgba(170,135,255,.5);transform:translateX(-50%);transition:width 1.25s cubic-bezier(.15,.8,.25,1)}
+.intro-v7.v7-resolved .v7-baseline{width:61%}
+.intro-v7 .v5-descriptor{margin-top:25px}
+.intro-v7 .v5-ring-stage{margin-bottom:16px;transform:scale(.88);opacity:.76}
+.intro-v7.v7-resolved .v5-ring-stage{transform:scale(1);opacity:1;transition:transform 1s,opacity 1s;filter:drop-shadow(0 0 28px rgba(173,142,244,.35))}
+.intro-v7 .v6-boot-status{transition:opacity .4s}
+.intro-v7.v7-resolved .v6-boot-status{color:#e5dbff}
+.intro-v7.v7-depart .v7-wordmark{transform:translateY(-15px) scale(1.08);filter:blur(5px);opacity:0;transition:transform .65s cubic-bezier(.16,1,.3,1),filter .65s,opacity .6s}
+.intro-v7.v7-depart .v5-ring-stage{transform:scale(1.25);opacity:0;transition:transform .8s,opacity .6s}
+.intro-v7.v7-depart .v5-descriptor,.intro-v7.v7-depart .v5-kicker{opacity:0;transition:opacity .45s}
+.intro-v7 .v6-halo{opacity:.65}
+.intro-v7 .v6-energy-rail{opacity:.24}
+@keyframes v7Sweep{from{transform:translateX(-120%) skewX(-9deg)}to{transform:translateX(120%) skewX(-9deg)}}
+@media(max-width:700px){.intro-v7 .v7-wordmark{width:96vw;margin:25px auto 9px}.intro-v7 .v7-letters,.intro-v7 .v7-ghost{font-size:clamp(68px,19.8vw,145px)}.intro-v7 .v7-baseline{bottom:-12px}.intro-v7 .v5-descriptor{margin-top:20px}}
+@media(prefers-reduced-motion:reduce){.intro-v7 .v7-glyph{transition:none;filter:none}.intro-v7 .v7-light-sweep{display:none}.intro-v7 .v7-baseline{transition:none}}
+
 </style>
 </head>
 <body class="loading">
-<div class="loader intro-v5 intro-v6" id="loader" role="status" aria-label="TWIST cinematic introduction">
+<div class="loader intro-v5 intro-v6 intro-v7" id="loader" role="status" aria-label="TWIST cinematic introduction">
 <div class="v5-atmosphere"></div><div class="v5-grid"></div><div class="v5-aura"></div><div class="v5-scan"></div>
 <canvas id="introParticles" class="v6-particles" aria-hidden="true"></canvas>
 <div class="v6-halo" aria-hidden="true"></div><div class="v6-energy-rail" aria-hidden="true"></div><div class="v6-exit-wave" aria-hidden="true"></div>
 <div class="v5-frame"><span class="v5-corner tl"></span><span class="v5-corner tr"></span><span class="v5-corner bl"></span><span class="v5-corner br"></span></div>
-<div class="v5-top mono"><span class="v5-top-brand"><i></i> TWIST<span class="v5-dim"> / EXPERIMENTAL SPACE</span></span><span>EST. 2026 &nbsp; — &nbsp; V.06</span></div>
+<div class="v5-top mono"><span class="v5-top-brand"><i></i> TWIST<span class="v5-dim"> / EXPERIMENTAL SPACE</span></span><span>EST. 2026 &nbsp; — &nbsp; V.07</span></div>
 <div class="v5-center">
 <div class="v5-ring-stage" aria-hidden="true"><div class="v6-ring-label v6-ring-label-left">◦ 001</div><div class="v6-ring-label v6-ring-label-right">α // 06</div><div class="v5-ring v5-r1"></div><div class="v5-ring v5-r2"></div><div class="v5-ring v5-r3"></div><div class="v5-ring-core"><span>✦</span></div></div>
 <div class="v5-kicker mono"><span class="v5-line"></span> WELCOME TO MY DIGITAL UNIVERSE <span class="v5-line"></span></div>
-<div class="v6-title-wrap"><div class="v5-title" aria-label="TWIST"><span>T</span><span>W</span><span>I</span><span>S</span><span>T</span><i>.</i></div><div class="v6-title-sweep" aria-hidden="true"></div></div>
+<div class="v7-wordmark" aria-label="TWIST">
+  <div class="v7-ghost" aria-hidden="true">TWIST<span>.</span></div>
+  <div class="v7-letters" aria-hidden="true">
+    <span class="v7-window"><span class="v7-glyph">T</span></span>
+    <span class="v7-window"><span class="v7-glyph">W</span></span>
+    <span class="v7-window"><span class="v7-glyph">I</span></span>
+    <span class="v7-window"><span class="v7-glyph">S</span></span>
+    <span class="v7-window"><span class="v7-glyph">T</span></span>
+    <span class="v7-window v7-window-dot"><span class="v7-glyph v7-dot">.</span></span>
+  </div>
+  <div class="v7-light-sweep" aria-hidden="true"></div>
+  <div class="v7-baseline" aria-hidden="true"></div>
+</div>
 <div class="v6-boot-status mono"><span class="v6-boot-dot"></span><span id="v6Status">SYSTEM INITIALIZATION</span><span class="v6-ticks">▰▱▱▱▱▱</span></div><div class="v5-descriptor mono">A NEW DIMENSION OF <b>INTELLIGENCE</b></div>
 <div class="v5-progress mono"><div class="v5-progress-head"><span id="introStage">AWAKENING THE SYSTEM</span><span id="percentage">000%</span></div><div class="v5-track"><i id="loadbar"></i></div></div>
 <div class="v5-enter mono">BEYOND THE VOID <span>✦</span> BEYOND THE ORDINARY</div>
@@ -175,8 +219,8 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Quick navigation"><div class="palette-box"><div class="palette-head"><span>QUICK NAVIGATION / TWIST</span><button id="closePalette" type="button">ESC</button></div><a href="#top">⌁ &nbsp; Home <small>01 ↗</small></a><a href="#work">⌁ &nbsp; Selected work <small>02 ↗</small></a><a href="#about">⌁ &nbsp; About <small>03 ↗</small></a><a href="#contact">⌁ &nbsp; Contact <small>04 ↗</small></a><a href="https://github.com/twist5202-ux" target="_blank" rel="noopener noreferrer">⌁ &nbsp; GitHub <small>EXTERNAL ↗</small></a></div></div>
 <script>
 (()=>{
-const $=id=>document.getElementById(id),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let active=!reduce;let finished=false;const loader=$('loader');const introDuration=6800;const introStages=['SIGNAL DETECTED','ASSEMBLING IDENTITY','NEURAL SYSTEMS ONLINE','UNLOCKING THE VOID'];let introRaf=0;const v5Letters=Array.from(document.querySelectorAll('.v5-title > span, .v5-title > i'));const v5LetterTimes=[550,1230,1910,2590,3270,3950];function revealLetters(ms){v5Letters.forEach((el,i)=>el.classList.toggle('v5-show',ms>=v5LetterTimes[i]));}function finish(){if(finished)return;finished=true;cancelAnimationFrame(introRaf);cancelAnimationFrame(v6Raf);revealLetters(Infinity);loader.classList.add('v6-unlocking');$('loadbar').style.width='100%';$('percentage').textContent='100%';$('introStage').textContent='ACCESS GRANTED';$('v6Status').textContent='WELCOME TO TWIST';loader.classList.add('done');document.body.classList.remove('loading');document.body.classList.add('ready');/* Retain loader for replay */}$('skip').addEventListener('click',finish);let started=performance.now();function progress(now){if(finished)return;let elapsed=now-started;revealLetters(elapsed);loader.classList.toggle('v6-charged',elapsed>4200);loader.classList.toggle('v6-unlocking',elapsed>5700);$('v6Status').textContent=elapsed>5700?'ACCESS GRANTED':elapsed>4200?'ENERGY CORE STABILIZED':elapsed>1700?'IDENTITY DECRYPTING':'SYSTEM INITIALIZATION';let duration=introDuration;let t=Math.min(elapsed/duration,1),e=t<.82?(.82*(1-Math.pow(1-t/.82,2.15))):(.82+(.18*(t-.82)/.18)),v=Math.min(100,Math.floor(e*100));$('loadbar').style.width=v+'%';$('percentage').textContent=String(v).padStart(3,'0')+'%';$('introStage').textContent=introStages[Math.min(3,Math.floor(t*4))];if(t<1)introRaf=requestAnimationFrame(progress);else finish()}introRaf=requestAnimationFrame(progress)
-$('replayIntro').addEventListener('click',()=>{if(!finished)return;finished=false;cancelAnimationFrame(introRaf);loader.classList.remove('done','v6-charged','v6-unlocking');v5Letters.forEach(el=>el.classList.remove('v5-show'));$('v6Status').textContent='SYSTEM INITIALIZATION';loader.classList.add('force-intro');loader.classList.remove('intro-v5');void loader.offsetWidth;loader.classList.add('intro-v5');document.body.classList.remove('ready');document.body.classList.add('loading');$('loadbar').style.width='0%';$('percentage').textContent='000%';$('introStage').textContent=introStages[0];document.body.prepend(loader);started=performance.now();startV6Particles();introRaf=requestAnimationFrame(progress)});
+const $=id=>document.getElementById(id),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let active=!reduce;let finished=false;const loader=$('loader');const introDuration=5700;const introStages=['ESTABLISHING SIGNAL','RECONSTRUCTING IDENTITY','INTELLIGENCE ONLINE','ENTERING THE VOID'];let introRaf=0;const v7Glyphs=Array.from(loader.querySelectorAll('.v7-glyph'));const v7LetterTimes=[600,790,980,1170,1360,1550];function revealLetters(ms){v7Glyphs.forEach((el,i)=>el.classList.toggle('v7-visible',ms>=v7LetterTimes[i]));loader.classList.toggle('v7-resolved',ms>=2550);loader.classList.toggle('v7-depart',ms>=4780);}function finish(){if(finished)return;finished=true;cancelAnimationFrame(introRaf);cancelAnimationFrame(v6Raf);revealLetters(Infinity);loader.classList.add('v6-unlocking');$('loadbar').style.width='100%';$('percentage').textContent='100%';$('introStage').textContent='ACCESS GRANTED';$('v6Status').textContent='WELCOME TO TWIST';loader.classList.add('done');document.body.classList.remove('loading');document.body.classList.add('ready');/* Retain loader for replay */}$('skip').addEventListener('click',finish);let started=performance.now();function progress(now){if(finished)return;let elapsed=now-started;revealLetters(elapsed);loader.classList.toggle('v6-charged',elapsed>2950);loader.classList.toggle('v6-unlocking',elapsed>4750);$('v6Status').textContent=elapsed>4700?'ACCESS GRANTED':elapsed>3000?'SYSTEM SYNCHRONIZED':elapsed>1650?'IDENTITY CONFIRMED':'REVEALING IDENTITY';let duration=introDuration;let t=Math.min(elapsed/duration,1),e=t<.82?(.82*(1-Math.pow(1-t/.82,2.15))):(.82+(.18*(t-.82)/.18)),v=Math.min(100,Math.floor(e*100));$('loadbar').style.width=v+'%';$('percentage').textContent=String(v).padStart(3,'0')+'%';$('introStage').textContent=introStages[Math.min(3,Math.floor(t*4))];if(t<1)introRaf=requestAnimationFrame(progress);else finish()}introRaf=requestAnimationFrame(progress)
+$('replayIntro').addEventListener('click',()=>{if(!finished)return;finished=false;cancelAnimationFrame(introRaf);loader.classList.remove('done','v6-charged','v6-unlocking','v7-resolved','v7-depart');v7Glyphs.forEach(el=>el.classList.remove('v7-visible'));$('v6Status').textContent='SYSTEM INITIALIZATION';loader.classList.add('force-intro');loader.classList.remove('intro-v5');void loader.offsetWidth;loader.classList.add('intro-v5');document.body.classList.remove('ready');document.body.classList.add('loading');$('loadbar').style.width='0%';$('percentage').textContent='000%';$('introStage').textContent=introStages[0];document.body.prepend(loader);started=performance.now();startV6Particles();introRaf=requestAnimationFrame(progress)});
 /* TWIST V6.1 - high visibility particle field with accessible static fallback. */
 const v6Canvas=$('introParticles');
 const v6Context=v6Canvas ? v6Canvas.getContext('2d') : null;
