@@ -247,6 +247,24 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
   }
 }
 
+
+/* TWIST V7.4 — close-set wordmark with safe unclipped letter boundaries.
+   Preserve each entire glyph; compress only the space between wrappers. */
+.intro-v7 .v7-letters{gap:0!important;letter-spacing:0!important}
+.intro-v7 .v7-window:not(:first-child){margin-left:-.043em!important}
+.intro-v7 .v7-window-dot{margin-left:-.012em!important}
+.intro-v7 .v7-window,
+.intro-v7 .v7-glyph{overflow:visible!important;clip-path:none!important;-webkit-clip-path:none!important}
+@media(max-width:700px){
+ .intro-v7 .v7-letters{gap:0!important}
+ .intro-v7 .v7-window:not(:first-child){margin-left:-.032em!important}
+ .intro-v7 .v7-window-dot{margin-left:-.012em!important}
+}
+@media(max-width:360px){
+ .intro-v7 .v7-letters{gap:0!important}
+ .intro-v7 .v7-window:not(:first-child){margin-left:-.025em!important}
+}
+
 </style>
 </head>
 <body class="loading">
@@ -255,7 +273,7 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 <canvas id="introParticles" class="v6-particles" aria-hidden="true"></canvas>
 <div class="v6-halo" aria-hidden="true"></div><div class="v6-energy-rail" aria-hidden="true"></div><div class="v6-exit-wave" aria-hidden="true"></div>
 <div class="v5-frame"><span class="v5-corner tl"></span><span class="v5-corner tr"></span><span class="v5-corner bl"></span><span class="v5-corner br"></span></div>
-<div class="v5-top mono"><span class="v5-top-brand"><i></i> TWIST<span class="v5-dim"> / EXPERIMENTAL SPACE</span></span><span>EST. 2026 &nbsp; — &nbsp; V.07.3</span></div>
+<div class="v5-top mono"><span class="v5-top-brand"><i></i> TWIST<span class="v5-dim"> / EXPERIMENTAL SPACE</span></span><span>EST. 2026 &nbsp; — &nbsp; V.07.4</span></div>
 <div class="v5-center">
 <div class="v5-ring-stage" aria-hidden="true"><div class="v6-ring-label v6-ring-label-left">◦ 001</div><div class="v6-ring-label v6-ring-label-right">α // 06</div><div class="v5-ring v5-r1"></div><div class="v5-ring v5-r2"></div><div class="v5-ring v5-r3"></div><div class="v5-ring-core"><span>✦</span></div></div>
 <div class="v5-kicker mono"><span class="v5-line"></span> WELCOME TO MY DIGITAL UNIVERSE <span class="v5-line"></span></div>
