@@ -102,18 +102,50 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 @media(prefers-reduced-motion:reduce) {
  .intro-v5 .v5-title > span,.intro-v5 .v5-title > i {transition:none!important;}
 }
+
+/* TWIST V6 — CHOREOGRAPHED ENERGY INTRO */
+.intro-v6{--v6-cold:#c7b5ff}
+.intro-v6 .v6-particles{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.intro-v6 .v6-halo{position:absolute;z-index:1;left:50%;top:48%;width:min(1020px,110vw);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%) scale(.8);background:radial-gradient(circle,rgba(114,80,198,.19) 0%,rgba(108,72,183,.13) 22%,rgba(75,47,156,.06) 38%,transparent 70%);filter:blur(22px);animation:v6Halo 5s cubic-bezier(.4,0,.2,1) infinite alternate;pointer-events:none}
+.intro-v6 .v6-energy-rail{position:absolute;left:-50%;right:-50%;top:50%;height:1px;z-index:2;transform:rotate(-13deg);background:linear-gradient(90deg,transparent 12%,rgba(171,132,255,.055) 38%,rgba(200,179,255,.45) 50%,rgba(171,132,255,.055) 62%,transparent 88%);box-shadow:0 0 38px rgba(154,121,255,.22);opacity:.25;animation:v6Rail 4.6s ease-in-out infinite;pointer-events:none}
+.intro-v6 .v6-ring-label{position:absolute;color:#a89ac8;font:9px 'DM Mono',monospace;letter-spacing:.2em;white-space:nowrap;opacity:.7}
+.intro-v6 .v6-ring-label-left{left:-50px;top:24%}
+.intro-v6 .v6-ring-label-right{right:-57px;bottom:17%}
+.intro-v6 .v5-ring-stage{filter:drop-shadow(0 0 20px rgba(168,133,255,.15))}
+.intro-v6.v6-charged .v5-ring-stage{filter:drop-shadow(0 0 38px rgba(190,155,255,.43));transition:filter 1s}
+.intro-v6 .v6-title-wrap{position:relative;isolation:isolate;overflow:visible}
+.intro-v6 .v5-title{position:relative;z-index:1}
+.intro-v6 .v6-title-sweep{position:absolute;left:-5%;right:-5%;top:5%;height:90%;z-index:2;pointer-events:none;mix-blend-mode:screen;background:linear-gradient(105deg,transparent 34%,rgba(255,255,255,.08) 43%,rgba(219,190,255,.37) 49%,rgba(255,255,255,.09) 54%,transparent 65%);transform:translateX(-180%) skewX(-8deg);opacity:0}
+.intro-v6.v6-charged .v6-title-sweep{opacity:1;animation:v6Shine 1.8s cubic-bezier(.2,.8,.2,1) both}
+.intro-v6.v6-charged .v5-title{text-shadow:0 0 56px rgba(180,151,255,.29);transition:text-shadow 1s}
+.intro-v6 .v6-boot-status{display:flex;justify-content:center;align-items:center;gap:10px;margin:1px auto 17px;color:#a397bd;font:9px 'DM Mono',monospace;letter-spacing:.16em;min-height:14px;animation:v5Rise .8s 1.3s both}
+.intro-v6 .v6-boot-dot{width:5px;height:5px;flex:0 0 5px;border-radius:50%;background:#c3adff;box-shadow:0 0 14px #c3adff;animation:v5Blink 1.7s ease-in-out infinite}
+.intro-v6 .v6-ticks{color:#746c8a;letter-spacing:.06em}
+.intro-v6.v6-charged .v6-boot-status{color:#dfd1ff}
+.intro-v6 .v6-exit-wave{position:absolute;z-index:2;left:50%;top:48%;width:200px;height:200px;border:1px solid rgba(214,191,255,.48);border-radius:50%;opacity:0;transform:translate(-50%,-50%) scale(.25);pointer-events:none;box-shadow:0 0 90px rgba(185,151,255,.17)}
+.intro-v6.v6-unlocking .v6-exit-wave{animation:v6Wave 1.4s cubic-bezier(.13,.78,.32,1) forwards}
+.intro-v6.done .v5-center{filter:blur(12px);transform:translate(-50%,-50%) scale(1.15);transition:opacity .7s,filter .7s,transform 1s}
+@keyframes v6Halo{to{transform:translate(-50%,-50%) scale(1.12);opacity:.7}}
+@keyframes v6Rail{50%{opacity:.8;transform:rotate(-13deg) translateY(-12px)}}
+@keyframes v6Shine{0%{transform:translateX(-180%) skewX(-8deg)}100%{transform:translateX(180%) skewX(-8deg)}}
+@keyframes v6Wave{0%{opacity:.8;transform:translate(-50%,-50%) scale(.3)}100%{opacity:0;transform:translate(-50%,-50%) scale(8)}}
+@media(max-width:600px){.intro-v6 .v6-halo{width:140vw}.intro-v6 .v6-ring-label{display:none}.intro-v6 .v6-boot-status{font-size:8px;letter-spacing:.08em}.intro-v6 .v6-ticks{display:none}.intro-v6 .v5-descriptor{margin-top:5px}}
+@media(prefers-reduced-motion:reduce){.intro-v6 .v6-halo,.intro-v6 .v6-energy-rail,.intro-v6 .v6-ring-stage{animation:none!important}.intro-v6 .v6-title-sweep{display:none}}
+
 </style>
 </head>
 <body class="loading">
-<div class="loader intro-v5" id="loader" role="status" aria-label="TWIST cinematic introduction">
+<div class="loader intro-v5 intro-v6" id="loader" role="status" aria-label="TWIST cinematic introduction">
 <div class="v5-atmosphere"></div><div class="v5-grid"></div><div class="v5-aura"></div><div class="v5-scan"></div>
+<canvas id="introParticles" class="v6-particles" aria-hidden="true"></canvas>
+<div class="v6-halo" aria-hidden="true"></div><div class="v6-energy-rail" aria-hidden="true"></div><div class="v6-exit-wave" aria-hidden="true"></div>
 <div class="v5-frame"><span class="v5-corner tl"></span><span class="v5-corner tr"></span><span class="v5-corner bl"></span><span class="v5-corner br"></span></div>
-<div class="v5-top mono"><span class="v5-top-brand"><i></i> TWIST<span class="v5-dim"> / EXPERIMENTAL SPACE</span></span><span>EST. 2026 &nbsp; — &nbsp; V.05</span></div>
+<div class="v5-top mono"><span class="v5-top-brand"><i></i> TWIST<span class="v5-dim"> / EXPERIMENTAL SPACE</span></span><span>EST. 2026 &nbsp; — &nbsp; V.06</span></div>
 <div class="v5-center">
-<div class="v5-ring-stage" aria-hidden="true"><div class="v5-ring v5-r1"></div><div class="v5-ring v5-r2"></div><div class="v5-ring v5-r3"></div><div class="v5-ring-core"><span>✦</span></div></div>
+<div class="v5-ring-stage" aria-hidden="true"><div class="v6-ring-label v6-ring-label-left">◦ 001</div><div class="v6-ring-label v6-ring-label-right">α // 06</div><div class="v5-ring v5-r1"></div><div class="v5-ring v5-r2"></div><div class="v5-ring v5-r3"></div><div class="v5-ring-core"><span>✦</span></div></div>
 <div class="v5-kicker mono"><span class="v5-line"></span> WELCOME TO MY DIGITAL UNIVERSE <span class="v5-line"></span></div>
-<div class="v5-title" aria-label="TWIST"><span>T</span><span>W</span><span>I</span><span>S</span><span>T</span><i>.</i></div>
-<div class="v5-descriptor mono">A NEW DIMENSION OF <b>INTELLIGENCE</b></div>
+<div class="v6-title-wrap"><div class="v5-title" aria-label="TWIST"><span>T</span><span>W</span><span>I</span><span>S</span><span>T</span><i>.</i></div><div class="v6-title-sweep" aria-hidden="true"></div></div>
+<div class="v6-boot-status mono"><span class="v6-boot-dot"></span><span id="v6Status">SYSTEM INITIALIZATION</span><span class="v6-ticks">▰▱▱▱▱▱</span></div><div class="v5-descriptor mono">A NEW DIMENSION OF <b>INTELLIGENCE</b></div>
 <div class="v5-progress mono"><div class="v5-progress-head"><span id="introStage">AWAKENING THE SYSTEM</span><span id="percentage">000%</span></div><div class="v5-track"><i id="loadbar"></i></div></div>
 <div class="v5-enter mono">BEYOND THE VOID <span>✦</span> BEYOND THE ORDINARY</div>
 </div>
@@ -135,8 +167,39 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Quick navigation"><div class="palette-box"><div class="palette-head"><span>QUICK NAVIGATION / TWIST</span><button id="closePalette" type="button">ESC</button></div><a href="#top">⌁ &nbsp; Home <small>01 ↗</small></a><a href="#work">⌁ &nbsp; Selected work <small>02 ↗</small></a><a href="#about">⌁ &nbsp; About <small>03 ↗</small></a><a href="#contact">⌁ &nbsp; Contact <small>04 ↗</small></a><a href="https://github.com/twist5202-ux" target="_blank" rel="noopener noreferrer">⌁ &nbsp; GitHub <small>EXTERNAL ↗</small></a></div></div>
 <script>
 (()=>{
-const $=id=>document.getElementById(id),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let active=!reduce;let finished=false;const loader=$('loader');const introDuration=6400;const introStages=['AWAKENING THE SYSTEM','FORMING THE UNIVERSE','SYNCHRONIZING INTELLIGENCE','WELCOME TO THE VOID'];let introRaf=0;const v5Letters=Array.from(document.querySelectorAll('.v5-title > span, .v5-title > i'));const v5LetterTimes=[650,1500,2350,3200,4050,4900];function revealLetters(ms){v5Letters.forEach((el,i)=>el.classList.toggle('v5-show',ms>=v5LetterTimes[i]));}function finish(){if(finished)return;finished=true;cancelAnimationFrame(introRaf);revealLetters(Infinity);$('loadbar').style.width='100%';$('percentage').textContent='100%';$('introStage').textContent='ACCESS GRANTED';loader.classList.add('done');document.body.classList.remove('loading');document.body.classList.add('ready');/* Retain loader for replay */}$('skip').addEventListener('click',finish);let started=performance.now();function progress(now){if(finished)return;let elapsed=now-started;revealLetters(elapsed);let duration=introDuration;let t=Math.min(elapsed/duration,1),e=t<.82?(.82*(1-Math.pow(1-t/.82,2.15))):(.82+(.18*(t-.82)/.18)),v=Math.min(100,Math.floor(e*100));$('loadbar').style.width=v+'%';$('percentage').textContent=String(v).padStart(3,'0')+'%';$('introStage').textContent=introStages[Math.min(3,Math.floor(t*4))];if(t<1)introRaf=requestAnimationFrame(progress);else finish()}introRaf=requestAnimationFrame(progress)
-$('replayIntro').addEventListener('click',()=>{if(!finished)return;finished=false;cancelAnimationFrame(introRaf);loader.classList.remove('done');v5Letters.forEach(el=>el.classList.remove('v5-show'));loader.classList.add('force-intro');loader.classList.remove('intro-v5');void loader.offsetWidth;loader.classList.add('intro-v5');document.body.classList.remove('ready');document.body.classList.add('loading');$('loadbar').style.width='0%';$('percentage').textContent='000%';$('introStage').textContent=introStages[0];document.body.prepend(loader);started=performance.now();introRaf=requestAnimationFrame(progress)});
+const $=id=>document.getElementById(id),reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let active=!reduce;let finished=false;const loader=$('loader');const introDuration=6800;const introStages=['SIGNAL DETECTED','ASSEMBLING IDENTITY','NEURAL SYSTEMS ONLINE','UNLOCKING THE VOID'];let introRaf=0;const v5Letters=Array.from(document.querySelectorAll('.v5-title > span, .v5-title > i'));const v5LetterTimes=[550,1230,1910,2590,3270,3950];function revealLetters(ms){v5Letters.forEach((el,i)=>el.classList.toggle('v5-show',ms>=v5LetterTimes[i]));}function finish(){if(finished)return;finished=true;cancelAnimationFrame(introRaf);cancelAnimationFrame(v6Raf);revealLetters(Infinity);loader.classList.add('v6-unlocking');$('loadbar').style.width='100%';$('percentage').textContent='100%';$('introStage').textContent='ACCESS GRANTED';$('v6Status').textContent='WELCOME TO TWIST';loader.classList.add('done');document.body.classList.remove('loading');document.body.classList.add('ready');/* Retain loader for replay */}$('skip').addEventListener('click',finish);let started=performance.now();function progress(now){if(finished)return;let elapsed=now-started;revealLetters(elapsed);loader.classList.toggle('v6-charged',elapsed>4200);loader.classList.toggle('v6-unlocking',elapsed>5700);$('v6Status').textContent=elapsed>5700?'ACCESS GRANTED':elapsed>4200?'ENERGY CORE STABILIZED':elapsed>1700?'IDENTITY DECRYPTING':'SYSTEM INITIALIZATION';let duration=introDuration;let t=Math.min(elapsed/duration,1),e=t<.82?(.82*(1-Math.pow(1-t/.82,2.15))):(.82+(.18*(t-.82)/.18)),v=Math.min(100,Math.floor(e*100));$('loadbar').style.width=v+'%';$('percentage').textContent=String(v).padStart(3,'0')+'%';$('introStage').textContent=introStages[Math.min(3,Math.floor(t*4))];if(t<1)introRaf=requestAnimationFrame(progress);else finish()}introRaf=requestAnimationFrame(progress)
+$('replayIntro').addEventListener('click',()=>{if(!finished)return;finished=false;cancelAnimationFrame(introRaf);loader.classList.remove('done','v6-charged','v6-unlocking');v5Letters.forEach(el=>el.classList.remove('v5-show'));$('v6Status').textContent='SYSTEM INITIALIZATION';loader.classList.add('force-intro');loader.classList.remove('intro-v5');void loader.offsetWidth;loader.classList.add('intro-v5');document.body.classList.remove('ready');document.body.classList.add('loading');$('loadbar').style.width='0%';$('percentage').textContent='000%';$('introStage').textContent=introStages[0];document.body.prepend(loader);started=performance.now();startV6Particles();introRaf=requestAnimationFrame(progress)});
+/* Lightweight cinematic particle field, active only during intro. */
+const v6Canvas=$('introParticles'),v6Context=v6Canvas.getContext('2d');
+let v6W=0,v6H=0,v6Dpr=1,v6Dots=[],v6Raf=0;
+function sizeV6Particles(){
+  if(!v6Context)return;
+  v6W=innerWidth;v6H=innerHeight;v6Dpr=Math.min(devicePixelRatio||1,1.5);
+  v6Canvas.width=Math.round(v6W*v6Dpr);v6Canvas.height=Math.round(v6H*v6Dpr);
+  v6Context.setTransform(v6Dpr,0,0,v6Dpr,0,0);
+  const count=Math.min(85,Math.max(28,Math.round(v6W*v6H/19000)));
+  v6Dots=Array.from({length:count},()=>({x:Math.random()*v6W,y:Math.random()*v6H,size:.5+Math.random()*1.5,alpha:.13+Math.random()*.46,speed:.15+Math.random()*.38,phase:Math.random()*6.28}));
+}
+function paintV6Particles(now){
+  if(finished)return;
+  v6Context.clearRect(0,0,v6W,v6H);
+  const progressFactor=Math.min(1,Math.max(0,(now-started)/introDuration));
+  v6Dots.forEach((p,i)=>{
+    const x=p.x+Math.sin(now*.00025+p.phase)*12;
+    const y=(p.y-now*p.speed*.006%v6H+v6H)%v6H;
+    const a=p.alpha*(.65+.35*Math.sin(now*.0018+p.phase))*(progressFactor>.75?1.22:1);
+    v6Context.fillStyle='rgba(193,172,255,'+Math.max(.04,a).toFixed(3)+')';
+    v6Context.beginPath();v6Context.arc(x,y,p.size,0,Math.PI*2);v6Context.fill();
+    if(i%13===0&&progressFactor>.45){
+      v6Context.strokeStyle='rgba(190,165,255,'+(Math.max(0,a*.22)).toFixed(3)+')';
+      v6Context.lineWidth=.5;v6Context.beginPath();v6Context.moveTo(x,y);v6Context.lineTo(x+18,y-33);v6Context.stroke();
+    }
+  });
+  v6Raf=requestAnimationFrame(paintV6Particles);
+}
+function startV6Particles(){cancelAnimationFrame(v6Raf);if(!v6Context||reduce)return;sizeV6Particles();v6Raf=requestAnimationFrame(paintV6Particles)}
+addEventListener('resize',()=>{if(!finished&&!reduce)sizeV6Particles()},{passive:true});
+startV6Particles();
 const canvas=$('stars'),ctx=canvas.getContext('2d');let stars=[],w,h,dpr,frame=0,mouseX=-1000,mouseY=-1000,raf=null;function resize(){dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);stars=Array.from({length:Math.min(115,Math.round(w*h/11000))},()=>({x:Math.random()*w,y:Math.random()*h,r:.25+Math.random()*1.15,v:.035+Math.random()*.13,a:.1+Math.random()*.48,phase:Math.random()*6.28}))}function draw(){ctx.clearRect(0,0,w,h);frame++;stars.forEach(s=>{let xx=s.x+(mouseX-w/2)*.009*s.r,yy=s.y+(mouseY-h/2)*.009*s.r;const shimmer=.75+.25*Math.sin(frame*.012+s.phase);ctx.fillStyle=`rgba(211,200,249,${s.a*shimmer})`;ctx.beginPath();ctx.arc(xx,yy,s.r,0,Math.PI*2);ctx.fill();if(active){s.y-=s.v;if(s.y<0){s.y=h;s.x=Math.random()*w}}});if(active)raf=requestAnimationFrame(draw)}resize();addEventListener('resize',()=>{resize();if(!active)draw()},{passive:true});if(active)draw();else draw();
 const orbital=$('orbital'),cursor=$('cursor');let moveScheduled=false,lastX=innerWidth/2,lastY=innerHeight/2;addEventListener('pointermove',e=>{lastX=e.clientX;lastY=e.clientY;if(!moveScheduled){moveScheduled=true;requestAnimationFrame(()=>{moveScheduled=false;cursor.style.left=lastX+'px';cursor.style.top=lastY+'px';document.documentElement.style.setProperty('--mx',lastX+'px');document.documentElement.style.setProperty('--my',lastY+'px');if(active&&innerWidth>620){const x=(lastX/innerWidth-.5),y=(lastY/innerHeight-.5);orbital.style.transform=`rotateY(${x*16}deg) rotateX(${-y*15}deg)`}})}},{passive:true});document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('pointerenter',()=>cursor.classList.add('hover'));el.addEventListener('pointerleave',()=>cursor.classList.remove('hover'))});document.querySelectorAll('.work-card').forEach(card=>card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--px',e.clientX-r.left+'px');card.style.setProperty('--py',e.clientY-r.top+'px')}));
 const items=document.querySelectorAll('.reveal-scroll');if('IntersectionObserver'in window){const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.13});items.forEach(el=>obs.observe(el))}else items.forEach(el=>el.classList.add('visible'));
