@@ -1,0 +1,18 @@
+
+/* TWIST / DARK CYBERPUNK — AUDIO CONTROL */
+.twist-audio{position:fixed;right:clamp(13px,3vw,30px);bottom:23px;z-index:1100;display:flex;align-items:center;gap:3px;padding:5px;border:1px solid rgba(185,161,249,.38);border-radius:12px;background:linear-gradient(135deg,rgba(24,18,39,.95),rgba(10,9,19,.94));box-shadow:0 10px 35px rgba(0,0,0,.4),0 0 28px rgba(130,84,246,.13);backdrop-filter:blur(15px);color:#d8c9ff;font:10px 'DM Mono',monospace;letter-spacing:.07em;transition:border-color .25s,box-shadow .25s}
+.twist-audio[data-on="true"]{border-color:rgba(190,163,255,.67);box-shadow:0 10px 35px rgba(0,0,0,.4),0 0 28px rgba(142,104,250,.26)}
+.twist-audio button{border:0;color:inherit;background:none;cursor:pointer}
+.twist-audio button:focus-visible,.twist-audio input:focus-visible{outline:2px solid #d9c6ff;outline-offset:3px}
+.twist-audio-main{display:flex;align-items:center;gap:9px;min-height:35px;padding:5px 8px 5px 10px;white-space:nowrap}
+.twist-audio-main svg{width:16px;height:16px;flex:none}
+.twist-audio[data-on="true"] .twist-audio-main svg{filter:drop-shadow(0 0 7px #b8a1ff)}
+.twist-audio-settings{display:grid;place-items:center;width:31px;height:35px;color:#a49ac2!important;font-size:15px;transition:transform .2s}
+.twist-audio-settings[aria-expanded="true"]{transform:rotate(180deg)}
+.twist-audio-volume{display:flex;align-items:center;gap:8px;position:absolute;bottom:calc(100% + 9px);right:0;padding:12px 13px;border:1px solid rgba(185,161,249,.32);border-radius:10px;background:#141020f2;box-shadow:0 12px 32px #0009;white-space:nowrap}
+.twist-audio-volume[hidden]{display:none}
+.twist-audio-volume label{color:#9b8dae}.twist-audio-volume input{width:105px;accent-color:#bba3ff;cursor:pointer}.twist-audio-volume output{font-variant-numeric:tabular-nums;min-width:30px;text-align:right}
+body.loading .twist-audio{top:89px;bottom:auto}
+body.loading .twist-audio-volume{top:calc(100% + 9px);bottom:auto}
+@media(max-width:620px){.twist-audio{right:15px;bottom:16px}.twist-audio-main{gap:7px;padding-left:7px;padding-right:5px}.twist-audio{font-size:9px}body.loading .twist-audio{top:75px}}
+@media(prefers-reduced-motion:reduce){.twist-audio,.twist-audio-settings{transition:none}}
