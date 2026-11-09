@@ -290,6 +290,14 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 .discord-icon:active{transform:translateY(-1px) scale(.96)}
 .discord-icon:focus-visible{outline:2px solid #d8c6ff;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.discord-icon{transition:none}}
+
+/* Discord and Gmail: paired minimalist interactive icons */
+.discord-contact{align-items:center;gap:14px;flex-wrap:wrap}
+.gmail-icon{text-decoration:none;display:grid;place-items:center}
+.gmail-icon:hover,.gmail-icon:focus-visible{background:rgba(120,96,218,.18)}
+.gmail-icon svg{display:block;transition:transform .25s ease,filter .25s ease}
+.gmail-icon:hover svg,.gmail-icon:focus-visible svg{transform:scale(1.08);filter:drop-shadow(0 0 7px rgba(194,163,255,.42))}
+@media(prefers-reduced-motion:reduce){.gmail-icon svg{transition:none}}
 </style>
 </head>
 <body class="loading">
@@ -334,7 +342,13 @@ body.motion-off *,body.motion-off *:before,body.motion-off *:after{animation-pla
 <div class="hairline"></div><section class="contact" id="contact"><div class="section-kicker reveal-scroll">03 / INITIATE A CONNECTION</div><h2 class="reveal-scroll">Let's create<span style="color:#9883d8">.</span></h2><p class="reveal-scroll">Have an idea worth bringing to life? Let's build something extraordinary together.</p><div class="actions reveal-scroll"><a class="action primary" href="https://twist5202-ux.github.io/automation/" target="_blank" rel="noopener noreferrer">VISIT MY STUDIO ↗</a><a class="action" href="https://github.com/twist5202-ux" target="_blank" rel="noopener noreferrer">FIND ME ON GITHUB ↗</a></div><div class="discord-contact reveal-scroll">
 <button type="button" class="discord-icon" id="discordContact" aria-label="Copy Discord username twistti" title="Copy Discord username: twistti">
 <svg viewBox="0 0 24 24" width="29" height="29" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.317 4.37a19.79 19.79 0 0 0-4.885-1.515.074.074 0 0 0-.078.037 14.16 14.16 0 0 0-.608 1.25 18.27 18.27 0 0 0-5.488 0 12.64 12.64 0 0 0-.616-1.25.077.077 0 0 0-.078-.037A19.736 19.736 0 0 0 3.679 4.37a.07.07 0 0 0-.032.027C.533 9.046-.321 13.58.099 18.058a.082.082 0 0 0 .031.056 19.9 19.9 0 0 0 5.994 3.03.078.078 0 0 0 .084-.028c.461-.63.872-1.295 1.226-1.994a.076.076 0 0 0-.042-.106 13.11 13.11 0 0 1-1.872-.891.077.077 0 0 1-.007-.128c.126-.094.252-.192.372-.291a.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .079.009c.12.099.245.198.372.293a.077.077 0 0 1-.007.128c-.578.348-1.2.647-1.873.891a.077.077 0 0 0-.041.107c.36.698.771 1.363 1.225 1.993a.076.076 0 0 0 .084.029 19.964 19.964 0 0 0 6.002-3.03.077.077 0 0 0 .031-.054c.501-5.177-.838-9.674-3.548-13.661a.061.061 0 0 0-.031-.029zM8.02 15.331c-1.183 0-2.158-1.085-2.158-2.42 0-1.334.955-2.42 2.158-2.42 1.211 0 2.178 1.096 2.178 2.42 0 1.335-.955 2.42-2.178 2.42zm7.975 0c-1.183 0-2.158-1.085-2.158-2.42 0-1.334.955-2.42 2.158-2.42 1.211 0 2.178 1.096 2.178 2.42 0 1.335-.955 2.42-2.178 2.42z"/></svg>
-</button></div></section></main>
+</button><a class="discord-icon gmail-icon" id="gmailContact" href="mailto:twist5202@gmail.com" aria-label="Email twist5202@gmail.com" title="Email: twist5202@gmail.com">
+<svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true" focusable="false" fill="none">
+<path d="M3.1 7.2V18.2" stroke="#4285F4" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M20.9 7.2V18.2" stroke="#34A853" stroke-width="2.8" stroke-linecap="round"/>
+<path d="M3.1 7.2L12 14L20.9 7.2" stroke="#EA4335" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20.9 7.2V11.6" stroke="#FBBC04" stroke-width="2.8" stroke-linecap="round"/>
+</svg></a></div></section></main>
 <footer class="footer"><span>© 2026 TWIST® — CRAFTED IN THE VOID</span><span>JAKARTA / EVERYWHERE · 06°S 106°E</span><button id="motion" type="button" aria-pressed="true">✳ MOTION ON</button><a href="#top">BACK TO TOP ↑</a></footer></div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Quick navigation"><div class="palette-box"><div class="palette-head"><span>QUICK NAVIGATION / TWIST</span><button id="closePalette" type="button">ESC</button></div><a href="#top">⌁ &nbsp; Home <small>01 ↗</small></a><a href="#work">⌁ &nbsp; Selected work <small>02 ↗</small></a><a href="#about">⌁ &nbsp; About <small>03 ↗</small></a><a href="#contact">⌁ &nbsp; Contact <small>04 ↗</small></a><a href="https://github.com/twist5202-ux" target="_blank" rel="noopener noreferrer">⌁ &nbsp; GitHub <small>EXTERNAL ↗</small></a></div></div>
