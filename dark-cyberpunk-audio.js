@@ -18,7 +18,7 @@ const output=root.querySelector('#twistVolumeValue');
 const label=root.querySelector('#twistSoundLabel');
 if(!AC){toggle.disabled=true;toggle.title='Web Audio is not supported in this browser';label.textContent='AUDIO N/A';settings.disabled=true;return;}
 let ctx=null,master=null,ambience=null,fx=null,noiseBuffer=null;
-let enabled=false,vol=25,inIntro=document.body.classList.contains('loading'),skipped=false,portalPlayed=false;
+let enabled=false,vol=25,inIntro=document.body.classList.contains('loading'),skipped=false,portalPlayed=false,muteTimer=0;
 function ramp(param,value,duration){
  const t=ctx.currentTime;
  param.cancelScheduledValues(t);
@@ -99,10 +99,11 @@ function updateUI(){
 }
 toggle.addEventListener('click',async()=>{
  enabled=!enabled;
+ clearTimeout(muteTimer);
  if(enabled){
   try{initAudio();await ctx.resume();adjust();if(inIntro){noiseSweep(.7,210,950,.1);tone(74,.72,.12,'sine',124);}}
   catch(err){enabled=false;console.warn('TWIST audio unavailable:',err);}
- }else adjust();
+ }else{adjust();muteTimer=setTimeout(()=>{if(!enabled&&ctx&&ctx.state==='running')ctx.suspend().catch(()=>{});},320);}
  updateUI();
 });
 settings.addEventListener('click',()=>{
