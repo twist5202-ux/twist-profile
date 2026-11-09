@@ -82,17 +82,27 @@ document.addEventListener('pointerdown',e=>{
 document.addEventListener('keydown',e=>{
  if(e.key==='Escape'&&!panel.hidden){panel.hidden=true;settings.setAttribute('aria-expanded','false');settings.focus();}
 });
-window.addEventListener('twist:intro-start',()=>{
- introDone=false;introStartAt=performance.now();
+// Observe the existing intro from outside its animation code.
+// This avoids coupling the sound controller to glyph and particle rendering.
+const replayButton=document.getElementById('replayIntro');
+const skipButton=document.getElementById('skip');
+if(replayButton)replayButton.addEventListener('click',()=>{
+ if(!introDone)return;
+ introDone=false;
+ introStartAt=performance.now();
  if(enabled){seek(0);resumeSound(undefined,true);}
 });
-window.addEventListener('twist:intro-skip',()=>{
+if(skipButton)skipButton.addEventListener('click',()=>{
  if(enabled){seek(ambienceStart);fadeTo(gainTarget(),350);}
 });
-window.addEventListener('twist:intro-finish',()=>{
- introDone=true;
- if(enabled&&audio.paused){resumeSound(ambienceStart,false);}
+const introObserver=new MutationObserver(()=>{
+ const loading=document.body.classList.contains('loading');
+ if(!loading&&!introDone){
+   introDone=true;
+   if(enabled&&audio.paused)resumeSound(ambienceStart,false);
+ }
 });
+introObserver.observe(document.body,{attributes:true,attributeFilter:['class']});
 audio.addEventListener('ended',()=>{
  if(!enabled)return;
  // Keep only the ambient portion looping; never repeat the opening portal blast.
