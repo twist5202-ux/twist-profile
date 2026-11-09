@@ -1,0 +1,21 @@
+name: Diagnose deployed TWIST animation
+
+on:
+  push:
+    branches: [debug/intro-animation-browser]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-deployed-site:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install playwright
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/diagnose-intro.py
