@@ -1,0 +1,16 @@
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local tooling
+node_modules/
+dist/
+.cache/
+*.log
+
+# Local secrets
+.env
+.env.*
+!.env.example
