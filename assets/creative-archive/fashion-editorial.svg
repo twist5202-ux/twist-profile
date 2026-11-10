@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 740" role="img" aria-label="Rosé Atelier Fashion Editorial original digital concept artwork">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#130c20"/><stop offset="1" stop-color="#6c406c"/></linearGradient>
+<radialGradient id="ambient"><stop stop-color="#bb7af5" stop-opacity=".44"/><stop offset="1" stop-color="#bb7af5" stop-opacity="0"/></radialGradient>
+<linearGradient id="lilac" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#f4ceff"/><stop offset=".38" stop-color="#a77ae4"/><stop offset=".62" stop-color="#40236a"/><stop offset="1" stop-color="#edd2ff"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#faf1fa"/><stop offset=".17" stop-color="#917aab"/><stop offset=".35" stop-color="#262035"/><stop offset=".56" stop-color="#e3d7ec"/><stop offset=".76" stop-color="#51436f"/><stop offset="1" stop-color="#f2dbff"/></linearGradient>
+<linearGradient id="blush" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffeaec"/><stop offset=".52" stop-color="#b27fae"/><stop offset="1" stop-color="#51305a"/></linearGradient>
+<linearGradient id="glass" x1="0" y1="0" x2=".9" y2="1"><stop stop-color="#e4caff" stop-opacity=".86"/><stop offset=".22" stop-color="#ac7feb" stop-opacity=".14"/><stop offset=".55" stop-color="#7e45bd" stop-opacity=".34"/><stop offset=".85" stop-color="#ebd4ff" stop-opacity=".56"/><stop offset="1" stop-color="#dcc5ff" stop-opacity=".14"/></linearGradient>
+<filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="16"/></filter>
+<filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="40"/></filter>
+<filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".5" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs><rect width="1200" height="740" fill="url(#bg)"/><ellipse cx="895" cy="205" rx="530" ry="370" fill="url(#ambient)"/>
+<ellipse cx="848" cy="332" rx="330" ry="360" fill="#ffd0f3" opacity=".23" filter="url(#soft)"/>
+<path d="M610 740Q630 580 740 552Q768 516 760 475Q710 415 708 299Q714 133 838 99Q1032 82 1052 287Q1066 416 1010 518Q1000 548 1060 578L1200 740Z" fill="#211326"/>
+<path d="M743 740Q737 640 792 570L792 462Q733 420 733 307Q742 177 841 151Q960 140 988 269Q1015 391 940 452L936 546Q1002 560 1082 634L1138 740Z" fill="url(#blush)"/>
+<path d="M729 303Q711 154 827 119Q938 70 1037 187Q1035 259 990 304Q999 202 959 190Q897 185 849 223Q794 237 729 303Z" fill="#211529"/>
+<path d="M766 333Q820 315 855 331M894 333Q947 307 975 323" stroke="#4d2b4a" stroke-width="6" fill="none" opacity=".52"/>
+<path d="M815 335q23 10 44 0M915 330q25 10 43 1" stroke="#4d2b4a" stroke-width="8" stroke-linecap="round" fill="none"/>
+<path d="M855 413Q893 426 931 405Q906 439 863 430Z" fill="#7e4259" opacity=".78"/>
+<path d="M810 565Q888 644 996 552Q1094 586 1200 697L1200 740H612Q630 642 810 565Z" fill="url(#lilac)" opacity=".92"/>
+<path d="M661 678Q806 548 894 689Q968 557 1180 646" fill="none" stroke="#f8d6f3" stroke-width="31" opacity=".48"/>
+<path d="M693 623Q866 538 1104 700" fill="none" stroke="#eecaff" stroke-width="6" opacity=".55"/>
+<g fill="none" stroke="#eac2fa" stroke-opacity=".6"><circle cx="829" cy="248" r="128"/><path d="M588 514Q641 269 738 254M981 481Q1096 361 1156 439"/></g>
+<g fill="#f3d9ff" opacity=".84"><circle cx="1023" cy="481" r="13"/><circle cx="1014" cy="481" r="6" fill="#6f456d"/></g>
+<text x="70" y="335" fill="#fff1f5" font-family="Georgia,serif" font-size="128" font-style="italic" letter-spacing="-9">ROSÉ</text>
+<text x="76" y="389" fill="#e8bce2" font-family="Arial" font-size="24" letter-spacing="11">ATELIER</text>
+<path d="M77 425H421" stroke="#eecbfa" opacity=".5"/><g fill="#f0defa" font-family="Arial,Helvetica,sans-serif"><text x="66" y="79" font-size="20" letter-spacing="7" opacity=".66">FASHION / EDITORIAL</text><text x="66" y="694" font-size="14" letter-spacing="5" opacity=".58">COUTURE VISUAL STUDY  /  001</text></g>
+<rect width="1200" height="740" filter="url(#grain)" opacity=".045"/><path d="M28 28H1172V712H28Z" fill="none" stroke="#f5e6ff" stroke-opacity=".12"/>
+</svg>
